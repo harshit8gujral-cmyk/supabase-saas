@@ -1,0 +1,6 @@
+[project]
+id = "auto"
+
+[functions]
+[functions.anomaly-alerts]
+verify_jwt = false
