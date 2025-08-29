@@ -2,13 +2,12 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase/client'
-import AlertsBell from './alerts-bell' // New import
+import AlertsBell from './alerts-bell'
 
 export default function Navbar() {
   const [email, setEmail] = useState('')
-  const [org, setOrg] = useState<string>('') // New state
+  const [org, setOrg] = useState<string>('')
 
-  // This useEffect is updated to fetch the org_id
   useEffect(() => {
     supabase.auth.getUser().then(async r => {
       const u = r.data.user
@@ -29,13 +28,12 @@ export default function Navbar() {
           <Link href="/inventory">Inventory</Link>
           <Link href="/maintenance">Maintenance</Link>
           <Link href="/alerts">Alerts</Link>
+          {/* This is the new line you need to add */}
+          {email && <Link href="/admin/users">Admin</Link>}
         </nav>
         <div className="flex items-center gap-3">
           <span className="text-xs opacity-70">{email}</span>
-          
-          {/* This is the new line you need to add */}
           {org && <AlertsBell org_id={org} />}
-          
           <form action="/api/logout" method="post">
             <button className="text-sm underline">Logout</button>
           </form>
