@@ -1,6 +1,16 @@
-[project]
-id = "auto"
+# supabase/config.toml
+project_id = "supabase-saas"
 
-[functions]
-[functions.anomaly-alerts]
-verify_jwt = false
+[api]
+port = 54321
+schemas = ["public", "storage"]
+
+[db]
+port = 54322
+major_version = 15
+
+[studio]
+port = 54323
+
+[auth]
+enable_signup = true
