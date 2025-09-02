@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { supabase } from '@/lib/supabase/client'
+import { supabase } from '@/library/supabase/client'
 
 export default function AlertsBell({ org_id }: { org_id: string }) {
   const [count, setCount] = useState(0)

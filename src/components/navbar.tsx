@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { supabase } from '@/lib/supabase/client'
+import { supabase } from '@/library/supabase/client'
 import AlertsBell from './alerts-bell'
 
 export default function Navbar() {
